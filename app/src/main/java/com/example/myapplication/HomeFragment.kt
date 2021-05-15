@@ -6,8 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), OnItemClickListener {
 
     companion object {
         fun newInstance() = HomeFragment()
@@ -28,4 +29,7 @@ class HomeFragment : Fragment() {
         // TODO: Use the ViewModel
     }
 
+    override fun onItemClicked(bookEntity: BookEntity) {
+        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailFragment(bookEntity.id))
+    }
 }

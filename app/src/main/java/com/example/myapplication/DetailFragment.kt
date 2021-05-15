@@ -2,10 +2,15 @@ package com.example.myapplication
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.net.toUri
+import com.example.myapplication.databinding.DetailFragmentBinding
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.detail_fragment.view.*
 
 class DetailFragment : Fragment() {
 
@@ -14,6 +19,8 @@ class DetailFragment : Fragment() {
     }
 
     private lateinit var viewModel: DetailViewModel
+
+    lateinit var detailBinding: DetailFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,11 +32,22 @@ class DetailFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
-        // TODO: get book id from another activity
+
+
+        val bookId = DetailFragmentArgs.fromBundle(requireArguments()).id
         viewModel.getBook(bookId)
         viewModel.book.observe(viewLifecycleOwner) {
             // TODO: Update view
         }
+
+        viewModel.book.observe(viewLifecycleOwner, {
+            try {
+                Picasso.get().load(it.image?.toUri()).into(detailBinding.bookImage)
+            } catch (e: Exception) {
+                // TODO: load a default image
+            }
+            detailBinding.bookName.text = it.name
+        })
     }
 
 }

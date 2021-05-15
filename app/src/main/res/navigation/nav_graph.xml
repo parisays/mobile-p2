@@ -3,12 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/detailFragment">
+    app:startDestination="@id/homeFragment">
 
-    <fragment
-        android:id="@+id/detailFragment"
-        android:name="com.example.myapplication.DetailFragment"
-        android:label="DetailFragment" />
+
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.myapplication.HomeFragment"
@@ -17,5 +14,13 @@
         <action
             android:id="@+id/action_homeFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.myapplication.DetailFragment"
+        android:label="DetailFragment" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
     </fragment>
 </navigation>
