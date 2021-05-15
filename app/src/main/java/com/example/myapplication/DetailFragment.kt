@@ -25,6 +25,8 @@ class DetailFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
+        // TODO: get book id from another activity
+        viewModel.getBook(bookId)
         viewModel.book.observe(viewLifecycleOwner) {
             // TODO: Update view
         }
