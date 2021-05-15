@@ -3,7 +3,7 @@ package com.example.myapplication.domain
 import com.example.myapplication.BookEntity
 import com.example.myapplication.data.BookDataSource
 
-class BookDataRepository {
+object BookDataRepository {
     fun getAllBooks(): Array<BookEntity> {
         return BookDataSource.getAllBooks()
     }
