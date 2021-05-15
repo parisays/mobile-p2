@@ -25,7 +25,9 @@ class DetailFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
-        // TODO: Use the ViewModel
+        viewModel.book.observe(viewLifecycleOwner) {
+            // TODO: Update view
+        }
     }
 
 }
