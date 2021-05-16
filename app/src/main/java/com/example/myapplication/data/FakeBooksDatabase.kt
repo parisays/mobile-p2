@@ -48,7 +48,13 @@ object FakeBooksDatabase {
         page_count = 352
     )
 
-    fun getAllBooks(): Array<BookEntity> {
-        return arrayOf(book1, book2, book3, book4, book5)
+    fun getAllBooks(): List<BookEntity> {
+        return listOf(book1, book2, book3, book4, book5)
+    }
+
+    fun getBook(id: Int): BookEntity {
+        return getAllBooks().single {
+            it.id == id
+        }
     }
 }

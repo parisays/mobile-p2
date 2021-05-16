@@ -1,4 +1,4 @@
-package com.example.mobilenetassignment2.ui.home
+package com.example.myapplication.home
 
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +11,7 @@ import com.example.myapplication.OnItemClickListener
 class BooksListAdapter(private val onItemClickListener: OnItemClickListener) :
     RecyclerView.Adapter<BooksListAdapter.BookViewHolder>() {
 
-    var data = arrayOf<BookEntity>()
+    var data = listOf<BookEntity>()
 
     override fun getItemCount(): Int = data.size
 
@@ -26,7 +26,7 @@ class BooksListAdapter(private val onItemClickListener: OnItemClickListener) :
         holder.bind(data[position], onItemClickListener)
     }
 
-    fun reload(books: Array<BookEntity>) {
+    fun reload(books: List<BookEntity>) {
         data = books
         notifyDataSetChanged()
     }

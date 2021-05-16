@@ -4,7 +4,7 @@ import com.example.myapplication.BookEntity
 import com.example.myapplication.data.BookDataSource
 
 object BookDataRepository {
-    fun getAllBooks(): Array<BookEntity> {
+    fun getAllBooks(): List<BookEntity> {
         return BookDataSource.getAllBooks()
     }
 
