@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.net.toUri
+import androidx.databinding.DataBindingUtil
 import com.example.myapplication.databinding.DetailFragmentBinding
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.detail_fragment.view.*
@@ -26,7 +27,8 @@ class DetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.detail_fragment, container, false)
+        detailBinding = DataBindingUtil.inflate(inflater, R.layout.detail_fragment, container, false)
+        return detailBinding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -36,9 +38,6 @@ class DetailFragment : Fragment() {
 
         val bookId = DetailFragmentArgs.fromBundle(requireArguments()).id
         viewModel.getBook(bookId)
-        viewModel.book.observe(viewLifecycleOwner) {
-            // TODO: Update view
-        }
 
         viewModel.book.observe(viewLifecycleOwner, {
             try {
