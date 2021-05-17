@@ -14,7 +14,7 @@ object FakeBooksDatabase {
 
     val book2 = BookEntity(
         id = 2,
-        name = "Kafka on th Shore",
+        name = "Kafka on the Shore",
         writer = "Haruki Murakami",
         image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHFU_j93PPsbQGqoaZJnHH6-Emk_sIxG823SkoRTL0nvdEP41f",
         genres = "Novel",
@@ -25,7 +25,7 @@ object FakeBooksDatabase {
         id = 3,
         name = "Dune",
         writer = "Frank Herbert",
-        image = "https://www.sonypictures.com/sites/default/files/styles/max_560x840/public/chameleon/title-movie/252681_oliver_twist_2005_1400x2100_2.jpg",
+        image = "https://d30a6s96kk7rhm.cloudfront.net/original/978/057/508/9780575081505.jpg",
         genres = "Science Fiction",
         page_count = 500
     )

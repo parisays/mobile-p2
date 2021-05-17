@@ -46,6 +46,10 @@ class DetailFragment : Fragment() {
                 // TODO: load a default image
             }
             detailBinding.bookName.text = it.name
+            detailBinding.bookWriter.text = it.writer
+            detailBinding.bookGenre.text = it.genres
+            detailBinding.bookPageCount.text = it.page_count.toString() + " pages"
+
         })
     }
 
