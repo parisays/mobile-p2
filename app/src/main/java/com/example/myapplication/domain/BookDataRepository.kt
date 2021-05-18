@@ -1,6 +1,6 @@
 package com.example.myapplication.domain
 
-import com.example.myapplication.BookEntity
+import com.example.myapplication.entities.BookEntity
 import com.example.myapplication.data.BookDataSource
 
 object BookDataRepository {

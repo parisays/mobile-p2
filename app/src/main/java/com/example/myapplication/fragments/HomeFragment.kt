@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.fragments
 
 
 import android.os.Bundle
@@ -7,18 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import android.view.MotionEvent
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.databinding.HomeFragmentBinding
-import com.example.myapplication.BookEntity
-import com.example.myapplication.home.BooksListAdapter
-//import com.example.myapplication.HomeViewModel
+import com.example.myapplication.entities.BookEntity
+import com.example.myapplication.viewmodels.HomeViewModel
+import com.example.myapplication.adapters.BooksListAdapter
+//import com.example.myapplication.viewmodels.HomeViewModel
 
 class HomeFragment : Fragment(), OnItemClickListener {
 

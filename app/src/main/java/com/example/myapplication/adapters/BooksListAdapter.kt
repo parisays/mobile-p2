@@ -1,6 +1,5 @@
-package com.example.myapplication.home
+package com.example.myapplication.adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,8 +8,8 @@ import android.widget.TextView
 import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
-import com.example.myapplication.BookEntity
-import com.example.myapplication.OnItemClickListener
+import com.example.myapplication.entities.BookEntity
+import com.example.myapplication.fragments.OnItemClickListener
 import com.squareup.picasso.Picasso
 
 class BooksListAdapter(private val onItemClickListener: OnItemClickListener) :

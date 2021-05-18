@@ -1,8 +1,7 @@
-package com.example.myapplication
+package com.example.myapplication.fragments
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,11 +9,11 @@ import android.view.ViewGroup
 import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
+import com.example.myapplication.viewmodels.DetailViewModel
+import com.example.myapplication.R
 import com.example.myapplication.databinding.DetailFragmentBinding
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.detail_fragment.*
-import kotlinx.android.synthetic.main.detail_fragment.view.*
 
 class DetailFragment : Fragment() {
 

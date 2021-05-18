@@ -1,6 +1,6 @@
 package com.example.myapplication.data
 
-import com.example.myapplication.BookEntity
+import com.example.myapplication.entities.BookEntity
 
 object FakeBooksDatabase {
     val book1 = BookEntity(

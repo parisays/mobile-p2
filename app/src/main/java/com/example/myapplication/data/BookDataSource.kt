@@ -1,6 +1,6 @@
 package com.example.myapplication.data
 
-import com.example.myapplication.BookEntity
+import com.example.myapplication.entities.BookEntity
 
 object BookDataSource {
     fun getAllBooks(): List<BookEntity> {
