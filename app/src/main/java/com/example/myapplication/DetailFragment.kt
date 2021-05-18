@@ -9,8 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
 import com.example.myapplication.databinding.DetailFragmentBinding
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.detail_fragment.*
 import kotlinx.android.synthetic.main.detail_fragment.view.*
 
 class DetailFragment : Fragment() {
@@ -27,7 +30,8 @@ class DetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        detailBinding = DataBindingUtil.inflate(inflater, R.layout.detail_fragment, container, false)
+        detailBinding =
+            DataBindingUtil.inflate(inflater, R.layout.detail_fragment, container, false)
         return detailBinding.root
     }
 
@@ -51,6 +55,10 @@ class DetailFragment : Fragment() {
             detailBinding.bookPageCount.text = it.page_count.toString() + " pages"
 
         })
+
+        back_button.setOnClickListener { view ->
+            findNavController().popBackStack()
+        }
     }
 
 }
