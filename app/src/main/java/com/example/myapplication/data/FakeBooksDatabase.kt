@@ -8,7 +8,7 @@ object FakeBooksDatabase {
         name = "Oliver Twist",
         writer = "Charles Dickens",
         image = "https://www.sonypictures.com/sites/default/files/styles/max_560x840/public/chameleon/title-movie/252681_oliver_twist_2005_1400x2100_2.jpg",
-        genres = "Novel",
+        genres = "Fiction, Romance",
         page_count = 506
     )
 
@@ -17,7 +17,7 @@ object FakeBooksDatabase {
         name = "Kafka on the Shore",
         writer = "Haruki Murakami",
         image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHFU_j93PPsbQGqoaZJnHH6-Emk_sIxG823SkoRTL0nvdEP41f",
-        genres = "Novel",
+        genres = "Magical Realism, Fantasy Fiction",
         page_count = 467
     )
 
@@ -44,9 +44,10 @@ object FakeBooksDatabase {
         name = "When Nietzsche Wept",
         writer = "Irvin D. Yalom",
         image = "https://blackwells.co.uk/jacket/l/9780062009302.jpg",
-        genres = "Novel",
+        genres = "Biographical Fiction",
         page_count = 352
     )
+
 
     fun getAllBooks(): List<BookEntity> {
         return listOf(book1, book2, book3, book4, book5)
