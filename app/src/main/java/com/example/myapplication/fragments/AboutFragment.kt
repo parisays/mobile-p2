@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
+import kotlinx.android.synthetic.main.about_fragment.*
 
 
 class AboutFragment : Fragment() {
@@ -25,6 +27,13 @@ class AboutFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.about_fragment, container, false)
+    }
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        back_button.setOnClickListener{view ->
+            findNavController().popBackStack()
+        }
     }
 
     companion object {

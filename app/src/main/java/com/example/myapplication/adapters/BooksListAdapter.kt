@@ -11,6 +11,7 @@ import com.example.myapplication.R
 import com.example.myapplication.entities.BookEntity
 import com.example.myapplication.fragments.OnItemClickListener
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.book_layout.view.*
 
 class BooksListAdapter(private val onItemClickListener: OnItemClickListener) :
     RecyclerView.Adapter<BooksListAdapter.BookViewHolder>() {
@@ -36,18 +37,12 @@ class BooksListAdapter(private val onItemClickListener: OnItemClickListener) :
     }
 
     class BookViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
         private val name = itemView.findViewById<TextView>(R.id.book_item_name)
         private val image = itemView.findViewById<ImageView>(R.id.book_item_image)
         private val writer = itemView.findViewById<TextView>(R.id.book_item_writer)
 
         fun bind(bookEntity: BookEntity, onItemClickListener: OnItemClickListener) {
-            try {
-                Picasso.get().load(bookEntity.image?.toUri()).into(image)
-//                Log.d(TAG, "Image loaded")
-            } catch (e: Exception) {
-//                Log.d(TAG, "Error loading artist image: $e")
-            }
+            Picasso.get().load(bookEntity.image?.toUri()).into(image)
             name.text = bookEntity.name
             writer.text = bookEntity.writer
             itemView.setOnClickListener {

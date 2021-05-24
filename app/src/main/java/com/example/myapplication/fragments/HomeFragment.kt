@@ -15,6 +15,8 @@ import com.example.myapplication.databinding.HomeFragmentBinding
 import com.example.myapplication.entities.BookEntity
 import com.example.myapplication.viewmodels.HomeViewModel
 import com.example.myapplication.adapters.BooksListAdapter
+import kotlinx.android.synthetic.main.home_fragment.*
+
 //import com.example.myapplication.viewmodels.HomeViewModel
 
 class HomeFragment : Fragment(), OnItemClickListener {
@@ -49,6 +51,11 @@ class HomeFragment : Fragment(), OnItemClickListener {
         adapter = homeBinding.bookListRecyclerView.adapter as BooksListAdapter
 
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+
+        infoButton.setOnClickListener{view ->
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToAboutFragment())
+        }
+        HomeFragmentDirections.actionHomeFragmentToAboutFragment()
 
         viewModel.books.observe(viewLifecycleOwner, { books ->
             adapter?.reload(books)
