@@ -6,17 +6,22 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.net.toUri
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.entities.BookEntity
 import com.example.myapplication.fragments.OnItemClickListener
 import com.squareup.picasso.Picasso
+import kotlin.properties.Delegates
 import kotlinx.android.synthetic.main.book_layout.view.*
 
 class BooksListAdapter(private val onItemClickListener: OnItemClickListener) :
-    RecyclerView.Adapter<BooksListAdapter.BookViewHolder>() {
+    RecyclerView.Adapter<BooksListAdapter.BookViewHolder>(), AutoUpdatableAdapter {
 
-    var data = listOf<BookEntity>()
+
+    var data: List<BookEntity> by Delegates.observable(emptyList()) { prop, old, new ->
+        autoNotify(old, new) { o, n -> o.id == n.id }
+    }
 
     override fun getItemCount(): Int = data.size
 
