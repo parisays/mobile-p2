@@ -50,6 +50,8 @@ class HomeFragment : Fragment(), OnItemClickListener {
 
         adapter = homeBinding.bookListRecyclerView.adapter as BooksListAdapter
 
+        book_list_recycler_view.setHasFixedSize(true)
+
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 
         infoButton.setOnClickListener{view ->

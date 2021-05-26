@@ -28,12 +28,16 @@ class BooksListAdapter(private val onItemClickListener: OnItemClickListener) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val view = layoutInflater.inflate(R.layout.book_layout, parent, false)
+        val holder = BookViewHolder(view)
 
-        return BookViewHolder(view)
+        holder.itemView.setOnClickListener(){
+            onItemClickListener.onItemClicked(data[holder.adapterPosition])
+        }
+        return holder
     }
 
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
-        holder.bind(data[position], onItemClickListener)
+        holder.bind(data[position])
     }
 
     fun reload(books: List<BookEntity>) {
@@ -46,13 +50,13 @@ class BooksListAdapter(private val onItemClickListener: OnItemClickListener) :
         private val image = itemView.findViewById<ImageView>(R.id.book_item_image)
         private val writer = itemView.findViewById<TextView>(R.id.book_item_writer)
 
-        fun bind(bookEntity: BookEntity, onItemClickListener: OnItemClickListener) {
+        fun bind(bookEntity: BookEntity) {
             Picasso.get().load(bookEntity.image?.toUri()).into(image)
             name.text = bookEntity.name
             writer.text = bookEntity.writer
-            itemView.setOnClickListener {
-                onItemClickListener.onItemClicked(bookEntity)
-            }
+//            itemView.setOnClickListener {
+//                onItemClickListener.onItemClicked(bookEntity)
+//            }
         }
 
     }
